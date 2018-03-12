@@ -69,7 +69,8 @@ get '/hello' do
   [200, 'hello!']
 end
 
-private
+# TODO: make private and tweak send_api so it can be consumed from rake task.
+# private
 
 def handle_message(sender_psid, received_message)
   response = {}
@@ -77,7 +78,6 @@ def handle_message(sender_psid, received_message)
   quote = QUOTES.sample
   text = "Hi Juan! here's a quote to boost up your day!\n\n#{quote['text']}"
   call_send_api(sender_psid, text);
-  # call_send_api(sender_psid, quote['text'])
 end
 
 def handle_postback(sender_psid, postback)
