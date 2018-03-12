@@ -65,6 +65,10 @@ get '/test' do
   call_send_api(sender_psid, 'This is a reminder', messaging_type='UPDATE')
 end
 
+get '/hello' do
+  [200, 'hello!']
+end
+
 private
 
 def handle_message(sender_psid, received_message)
