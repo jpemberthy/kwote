@@ -1,7 +1,7 @@
 require 'httparty'
 require 'json'
 require 'sinatra'
-require 'sinatra/reloader'  # if development?
+# require 'sinatra/reloader'  # if development?
 
 PAGE_ACCESS_TOKEN = ENV['PAGE_ACCESS_TOKEN']
 QUOTES = JSON.parse(File.read('quotes.json'))
