@@ -15,3 +15,5 @@ gem "sinatra", "~> 2.0"
 
 # Added at 2018-03-11 18:31:42 -0700 by juanp:
 gem "rake", "~> 12.3"
+
+gem "rack", ">= 2.0.6"
