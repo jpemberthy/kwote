@@ -10,8 +10,7 @@ gem "httparty", "~> 0.16.0"
 # Added at 2018-03-11 18:03:42 -0700 by juanp:
 gem "json", "~> 2.1"
 
-# Added at 2018-03-11 18:03:52 -0700 by juanp:
-gem "sinatra", "~> 2.0"
+gem "sinatra", ">= 2.0.2"
 
 # Added at 2018-03-11 18:31:42 -0700 by juanp:
 gem "rake", "~> 12.3"
