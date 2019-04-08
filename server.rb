@@ -3,8 +3,10 @@ require 'json'
 require 'sinatra'
 # require 'sinatra/reloader'  # if development?
 
+require_relative "librarian"
+
 PAGE_ACCESS_TOKEN = ENV['PAGE_ACCESS_TOKEN']
-QUOTES = JSON.parse(File.read('quotes.json'))
+librarian = Librarian.new
 
 post '/webhook' do
   request.body.rewind  # in case someone already read it
@@ -75,8 +77,8 @@ end
 def handle_message(sender_psid, received_message)
   response = {}
 
-  quote = QUOTES.sample
-  text = "Hi Juan! here's a quote to boost up your day!\n\n#{quote['text']}"
+  quote = librarian.quote
+  text = "Hi Juan! here's a quote to boost up your day!\n\n#{quote.text}"
   call_send_api(sender_psid, text);
 end
 
