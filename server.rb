@@ -6,7 +6,7 @@ require 'sinatra'
 require_relative "librarian"
 
 PAGE_ACCESS_TOKEN = ENV['PAGE_ACCESS_TOKEN']
-librarian = Librarian.new
+LIBRARIAN = Librarian.new
 
 post '/webhook' do
   request.body.rewind  # in case someone already read it
@@ -63,8 +63,7 @@ get '/webhook' do
 end
 
 get '/test' do
-  sender_psid = ENV['TEST_SENDER_PSDI']
-  call_send_api(sender_psid, 'This is a reminder', messaging_type='UPDATE')
+  handle_message(ENV['TEST_SENDER_PSDI'], "foo")
 end
 
 get '/hello' do
@@ -76,10 +75,7 @@ end
 
 def handle_message(sender_psid, received_message)
   response = {}
-
-  quote = librarian.quote
-  text = "Hi Juan! here's a quote to boost up your day!\n\n#{quote.text}"
-  call_send_api(sender_psid, text);
+  call_send_api(sender_psid, LIBRARIAN.quote);
 end
 
 def handle_postback(sender_psid, postback)

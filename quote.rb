@@ -7,4 +7,10 @@ class Quote
     @book = book
     @text = text
   end
+
+  def to_s
+    "Hi Juan! here's a quote to boost up your day!
+    \n#{self.text}
+    \n--#{self.book}"
+  end
 end

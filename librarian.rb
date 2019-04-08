@@ -23,7 +23,7 @@ class Librarian
     Dir.glob(QUOTES_FILES_PATTERN).each do |quote_path|
       book = JSON.parse(File.read(quote_path))
       book["highlights"].each do |highlight|
-        @quotes << Quote.new(book: book["tittle"], text: highlight["text"])
+        @quotes << Quote.new(book: book["title"], text: highlight["text"])
       end
     end
   end
